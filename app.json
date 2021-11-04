@@ -1,28 +1,65 @@
 {
-    "name": "Mega-Nz Bot",
-    "description": "Mega.nz links downloader Telegram bot.",
+    "name": "Mega.nz Bot",
+    "description": "Simple Telegram Bot to download files from Mega.nz",
+    "logo": "https://telegra.ph/file/583f46da57641b90c28f9.png",
     "keywords": [
-        "Mega.nz",
-        "Mega Cloud",
+        "mega.nz",
         "Telegram Bot",
-        "EzBot"
+        "mega.nz bot"
     ],
+    "website": "https://t.me/@lhaituyangdicari",
     "repository": "https://github.com/ezbot9/MegaBot",
-    "success_url": "https://t.me/Infinity_Bots",
+    "success_url": "https://t.me/NexaBotsUpdates",
     "env": {
+        "APP_ID": {
+            "description": "Your APP_ID from my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Your API_HASH from my.telegram.org",
+            "required": true
+        },
+        "AUTH_USERS": {
+            "description": "Telegram Ids Of Auth Users, Only they can use this bot. Separate them by space!",
+            "required": true
+        },
         "BOT_TOKEN": {
-            "description": "Your Telegram Bot Token from @BotFather",
+            "description": "Your Bot Token From @BotFather",
+            "required": true
+        },
+        "IS_PUBLIC_BOT": {
+            "description": "Set this to 'True' If you want to set Download Function as Public. Default to 'False' !",
+            "required": false,
+            "value": "False"
+        },
+        "LOGS_CHANNEL": {
+            "description": "Make a private channel and forward a message from that channel to @ChannelidHEXbot and Get this. Not Mandatory",
+            "required": false,
             "value": ""
+        },
+        "MEGA_EMAIL": {
+            "description": "Fill this if you want to use your own Mega Account. This is your Mega account Email!",
+            "required": false
+        },
+        "MEGA_PASSWORD": {
+            "description": "Fill this if you want to use your own Mega Account. This is your Mega account Password!",
+            "required": false
         }
     },
     "addons": [],
     "buildpacks": [
-        {"url": "heroku/python"}
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
     ],
     "formation": {
         "worker": {
             "quantity": 1,
             "size": "free"
         }
-    }
+    },
+    "stack": "heroku-20"
 }
